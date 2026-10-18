@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Your Wedding Gift Awaits 💍</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FAF8F5; --paper:#FFFFFF; --ink:#1E1B18; --soft:#7A736C; --line:#E6E0D8; --accent:#B08D57; --accent-soft:#F3ECE1;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#141312; --paper:#1C1A18; --ink:#F3EFE9; --soft:#A39C94; --line:#2F2B28; --accent:#D2B07A; --accent-soft:#2A241C;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#141312; --paper:#1C1A18; --ink:#F3EFE9; --soft:#A39C94; --line:#2F2B28; --accent:#D2B07A; --accent-soft:#2A241C;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{height:100%;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;min-height:100%;color:var(--ink);background:var(--bg);
+  font-family:"Manrope","Helvetica Neue",Arial,sans-serif;font-size:1rem;line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+h1,h2{font-family:"Cormorant Garamond",Georgia,"Times New Roman",serif;font-weight:500;line-height:1.15;margin:0;letter-spacing:-.01em}
+h1{font-size:clamp(2.4rem,8vw,3.6rem)}
+h2{font-size:clamp(1.7rem,5.5vw,2.3rem)}
+h1 i,h2 i{color:var(--accent)}
+p{margin:.45rem 0}
+main{max-width:640px;margin:0 auto;padding:32px 22px 64px;min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;justify-content:center}
+.screen{display:none;text-align:center}
+.screen.on{display:block;animation:fade .5s ease}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.screen.on{animation:none}}
+.eyebrow{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:14px;display:block}
+.rule{width:40px;height:1px;background:var(--accent);margin:18px auto}
+
+.btn{font:inherit;font-weight:600;font-size:.95rem;letter-spacing:.02em;border:1px solid var(--ink);border-radius:999px;
+  padding:.75rem 1.6rem;background:var(--ink);color:var(--bg);cursor:pointer;display:inline-block;text-decoration:none;
+  transition:opacity .2s, background .2s, color .2s;margin:.35rem}
+.btn:hover{opacity:.85}
+.btn.ghost,.btn.mint,.btn.yellow{background:transparent;color:var(--ink)}
+.btn.ghost{border-color:var(--line)}
+.btn.yellow,.btn.mint{border-color:var(--accent);color:var(--ink)}
+.btn.yellow:hover,.btn.mint:hover{background:var(--accent-soft);opacity:1}
+.btn:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.btn:disabled{opacity:.3;cursor:not-allowed}
+
+.env{width:min(260px,72vw);aspect-ratio:3/2;margin:28px auto 16px;position:relative;cursor:pointer;border:none;background:none;padding:0;perspective:600px}
+.env .body{position:absolute;inset:0;background:var(--paper);border:1px solid var(--line);border-radius:4px}
+.env .flap{position:absolute;inset:0 0 42% 0;background:var(--accent-soft);border:1px solid var(--line);clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:top;transition:transform .7s ease}
+.env .seal{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:42px;height:42px;border-radius:50%;background:var(--accent);z-index:2;display:grid;place-items:center;font-size:1rem}
+.env.open .flap{transform:rotateX(180deg)}
+.env:focus-visible{outline:2px solid var(--accent);outline-offset:6px}
+.hint{color:var(--soft);font-size:.88rem}
+
+.excuses{list-style:none;padding:0;margin:20px auto;max-width:440px;text-align:left;counter-reset:x}
+.excuses li{padding:.8rem 0 .8rem 2.2rem;border-bottom:1px solid var(--line);position:relative;counter-increment:x}
+.excuses li::before{content:counter(x,decimal-leading-zero);position:absolute;left:0;top:.85rem;font-size:.75rem;color:var(--accent);font-weight:700;letter-spacing:.1em}
+.excuses li s{color:var(--soft)}
+.forgive{position:relative;min-height:110px;margin-top:12px}
+#noBtn{position:relative;transition:transform .25s}
+
+.rules{max-width:440px;margin:20px auto;text-align:left}
+.rules p{display:flex;gap:1rem;align-items:baseline;padding:.7rem 0;border-bottom:1px solid var(--line);margin:0}
+.rules b{font-size:.75rem;color:var(--accent);letter-spacing:.1em;min-width:1.6rem}
+
+.turn{display:inline-block;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:10px}
+.grid{display:grid;grid-template-columns:1fr;gap:10px;margin:22px 0 14px;text-align:left}
+@media (min-width:560px){.grid{grid-template-columns:1fr 1fr}}
+.gift{font:inherit;color:var(--ink);text-align:left;cursor:pointer;background:var(--paper);border:1px solid var(--line);border-radius:12px;
+  padding:16px 18px;position:relative;display:grid;grid-template-columns:auto 1fr;column-gap:14px;align-items:start;transition:border-color .2s, background .2s}
+.gift:hover{border-color:var(--soft)}
+.gift .emo{font-size:1.25rem;line-height:1.5;grid-row:span 2;filter:grayscale(.15)}
+.gift .t{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;font-size:1.3rem;line-height:1.25}
+.gift .d{font-size:.86rem;line-height:1.5;color:var(--soft);margin-top:4px}
+.gift:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.gift.sel{border-color:var(--accent);background:var(--accent-soft)}
+.gift.sel::after{content:"";position:absolute;top:16px;right:16px;width:10px;height:10px;border-radius:50%;background:var(--accent)}
+
+.cover{font-size:2.2rem;margin:4px 0 14px}
+.drum{font-size:2.4rem;display:inline-block;animation:pulse 1s ease-in-out infinite}
+@keyframes pulse{50%{transform:scale(1.12)}}
+@media (prefers-reduced-motion:reduce){.drum{animation:none}}
+
+.pair{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:22px 0}
+.pick{border:1px solid var(--line);background:var(--paper);border-radius:12px;padding:16px;min-width:180px;flex:1;max-width:260px}
+.pick small{display:block;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);font-weight:700}
+.pick .emo{font-size:1.6rem;margin:6px 0}
+.pick .t{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;font-size:1.2rem}
+
+.coin{width:84px;height:84px;margin:18px auto;border-radius:50%;border:1px solid var(--accent);background:var(--accent-soft);display:grid;place-items:center;font-size:2rem}
+.coin.spin{animation:flip .2s linear infinite}
+@keyframes flip{50%{transform:scaleX(.1)}}
+
+.voucher{background:var(--paper);border:1px solid var(--line);border-radius:6px;max-width:420px;margin:22px auto;padding:30px 26px;position:relative;outline:1px solid var(--line);outline-offset:-10px}
+.voucher .emo{font-size:2.6rem;line-height:1.2}
+.voucher .gname{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;font-size:2rem;line-height:1.2;margin:8px 0 6px}
+.voucher hr{border:none;border-top:1px solid var(--line);margin:18px 0}
+.voucher .meta{font-size:.82rem;color:var(--soft)}
+.voucher .meta p{margin:.2rem 0}
+.note{border-left:2px solid var(--accent);background:var(--accent-soft);color:var(--ink);padding:.6rem .9rem;margin-top:14px;font-size:.88rem;text-align:left}
+
+canvas#conf{position:fixed;inset:0;pointer-events:none;z-index:50}
+</style>
+</head>
+<body>
+<canvas id="conf"></canvas>
+<main>
+
+  <section class="screen on" id="s-check">
+    <div class="cover">💑</div>
+    <span class="eyebrow">Before we begin</span>
+    <h1>Hold <i>on</i></h1>
+    <p>This game only works if you're <b>both</b> here.</p>
+    <h2 style="margin-top:10px">Are you two together right now?</h2>
+    <div style="margin-top:14px">
+      <button class="btn" data-go="sure">Yes, we're together!</button>
+      <button class="btn ghost" data-go="apart">No, not yet</button>
+    </div>
+  </section>
+
+  <section class="screen" id="s-sure">
+    <div class="cover">🤨</div>
+    <h2>Are you SURE you're together?</h2>
+    <p>No lying, liars! I'll know… 👀</p>
+    <p class="hint">Look at each other right now. Both faces visible? Okay.</p>
+    <div style="margin-top:14px">
+      <button class="btn mint" data-go="env">100% sure, we're sitting together 🤝</button>
+      <button class="btn ghost" data-go="apart">Okay fine… we lied 🙈</button>
+    </div>
+  </section>
+
+  <section class="screen" id="s-apart">
+    <div class="cover">🚫</div>
+    <h2>Nope! Not without each other</h2>
+    <p>Go find your other half, sit together, and open the link again 💞</p>
+    <p class="hint">(Yes, you can call them. No, that doesn't count.)</p>
+    <button class="btn yellow" data-go="check">We're together now!</button>
+  </section>
+
+  <section class="screen" id="s-env">
+    <span class="eyebrow">A little late, but with love</span>
+    <h1>Congratulations, <i>newlyweds</i></h1>
+    <p>You've got mail… a <i>little</i> late 🙈</p>
+    <button class="env" id="env" aria-label="Open the envelope">
+      <span class="body"></span><span class="flap"></span><span class="seal">💌</span>
+    </button>
+    <p class="hint">Tap the envelope</p>
+  </section>
+
+  <section class="screen" id="s-sorry">
+    <h2>I know, I know… your gift is late</h2>
+    <p>But I have <b>very</b> solid excuses:</p>
+    <ul class="excuses">
+      <li><s>I forgot</s> I was hunting for a gift worthy of you ✨</li>
+      <li>I waited for your wedding budget to recover first 😅</li>
+      <li>I wanted to give you a chance to miss me</li>
+      <li>And finally I decided: <b>YOU get to choose!</b> 🎁</li>
+    </ul>
+    <h2 style="margin-top:14px">Do you forgive me?</h2>
+    <div class="forgive">
+      <button class="btn" id="yesBtn">Of course we do 🥹</button>
+      <button class="btn ghost" id="noBtn">No</button>
+    </div>
+  </section>
+
+  <section class="screen" id="s-rules">
+    <span class="eyebrow">How it works</span>
+    <h2>The <i>rules</i></h2>
+    <div class="rules">
+      <p><b>1</b><span>The bride picks first while the groom looks away 🙈</span></p>
+      <p><b>2</b><span>Then the groom picks while the bride looks away (no cheating!)</span></p>
+      <p><b>3</b><span>We reveal both picks… if they match: congrats, you're soulmates 💞</span></p>
+      <p><b>4</b><span>If you don't match? There's a solution… the groom won't love it 😏</span></p>
+    </div>
+    <button class="btn" data-go="bride">Let's go!</button>
+  </section>
+
+  <section class="screen" id="s-bride">
+    <span class="turn">Bride's turn 👰</span>
+    <h2>Pick the gift you want</h2>
+    <p class="hint">Groom… eyes on the ceiling, please</p>
+    <div class="grid" data-who="bride"></div>
+    <button class="btn" id="brideDone" disabled>Lock in my choice</button>
+  </section>
+
+  <section class="screen" id="s-switch">
+    <div class="cover">🙈</div>
+    <h2>Bride's choice is locked & secret 🔒</h2>
+    <p>Now hand the phone to the groom… and look away!</p>
+    <button class="btn yellow" data-go="groom">I'm the groom, ready!</button>
+  </section>
+
+  <section class="screen" id="s-groom">
+    <span class="turn groom">Groom's turn 🤵</span>
+    <h2>Pick the gift you want</h2>
+    <p class="hint">Friendly tip: think like the bride 😉</p>
+    <div class="grid" data-who="groom"></div>
+    <button class="btn" id="groomDone" disabled>Lock in my choice</button>
+  </section>
+
+  <section class="screen" id="s-drum">
+    <div class="drum">🥁</div>
+    <h2>Moment of truth…</h2>
+    <p>Are you on the same page, or is this your first marital argument?</p>
+  </section>
+
+  <section class="screen" id="s-reveal">
+    <h2 id="revealTitle"></h2>
+    <div class="pair" id="pair"></div>
+    <p id="revealText"></p>
+    <div id="tieBtns">
+      <button class="btn mint" id="coinBtn">🪙 Flip a coin</button>
+      <button class="btn" id="brideWins">👑 The bride decides (the wise choice)</button>
+    </div>
+    <div id="coinWrap" hidden>
+      <div class="coin" id="coin">?</div>
+      <p id="coinText"></p>
+    </div>
+    <button class="btn yellow" id="toVoucher" hidden>See your gift 🎁</button>
+  </section>
+
+  <section class="screen" id="s-prank">
+    <h1>Your friend picked…</h1>
+    <div class="voucher">
+      <div class="emo" style="font-size:4.5rem">💩</div>
+      <div class="gname">A big pile of poop</div>
+      <p>That's what you get for letting someone else decide 😂</p>
+      <hr>
+      <div class="meta">
+        <p>🎟️ Wedding Gift Voucher (fake)</p>
+        <p>From: your late friend who had no time to choose</p>
+        <p>Valid: never 😂</p>
+      </div>
+    </div>
+    <p>Okay okay… just kidding. Go back and choose properly this time 👇</p>
+    <button class="btn" id="retry">Choose again</button>
+  </section>
+
+  <section class="screen" id="s-voucher">
+    <span class="eyebrow">The verdict</span>
+    <h1>Your gift <i>is…</i></h1>
+    <div class="voucher">
+      <div class="emo" id="vEmo"></div>
+      <div class="gname" id="vName"></div>
+      <p id="vDesc"></p>
+      <div class="note" id="vNote" hidden></div>
+      <hr>
+      <div class="meta">
+        <p>🎟️ Wedding Gift Voucher</p>
+        <p>From: your friend who was late (but loves you)</p>
+        <p>Valid: from today until you ask "where's our gift?" 😂</p>
+      </div>
+    </div>
+    <p>Screenshot this or send me your choice 👇</p>
+    <a class="btn mint" id="waBtn" target="_blank" rel="noopener">Send on WhatsApp</a>
+    <button class="btn ghost" id="again">Play again</button>
+  </section>
+
+</main>
+<script>
+const GIFTS = [
+  {id:"banana", emo:"🏝️", c:"#7CCBFF", t:"2 Days at Banana Island", d:"A getaway for two: sea, calm, and nobody bothering you (not even me)."},
+  {id:"gold", emo:"💛", c:"#FFD84D", t:"A Gold Piece for the Bride", d:"The groom picks it himself… good luck, groom 😅",
+    note:"Gift rule: the groom chooses, and the bride says “wow, I love it!” even if she doesn't 😏"},
+  {id:"yacht", emo:"🛥️", c:"#6EE3C4", t:"Sunset Dinner on a Yacht", d:"A yacht just for you two, the sea, the sunset, dinner… romance with zero effort."},
+  {id:"wish", emo:"💭", c:"#C9A7FF", t:"We Already Have Something in Mind", d:"Know exactly what you want? Tell me and I'll get it, up to QAR 1,500.",
+    note:"Budget: QAR 1,500. Send me exactly what it is… and no sneaky budget upgrades 😂"},
+  {id:"surprise", emo:"🎁", c:"#FF9CC8", t:"Discover What Your Friend Picked 👀", d:"I already chose something special just for you… aren't you curious? 🤫"}
+];
+const state = {bride:null, groom:null, final:null, noSurprise:false};
+const $ = s => document.querySelector(s);
+const show = id => {
+  document.querySelectorAll(".screen").forEach(s=>s.classList.remove("on"));
+  $("#s-"+id).classList.add("on");
+  window.scrollTo(0,0);
+};
+document.querySelectorAll("[data-go]").forEach(b=>b.onclick=()=>show(b.dataset.go));
+
+$("#env").onclick = () => { $("#env").classList.add("open"); setTimeout(()=>show("sorry"),700); };
+
+const noBtn = $("#noBtn"); let dodges = 0;
+const noLines = ["Are you sure?","Think again 🥺","This button is tired","Impossible 😂","Just press yes!"];
+function dodge(e){
+  e.preventDefault();
+  const x = (Math.random()*220-110), y = (Math.random()*80-20);
+  noBtn.style.transform = `translate(${x}px,${y}px) rotate(${Math.random()*30-15}deg)`;
+  noBtn.textContent = noLines[dodges++ % noLines.length];
+}
+noBtn.addEventListener("pointerenter", dodge);
+noBtn.addEventListener("click", dodge);
+$("#yesBtn").onclick = () => { burst(); show("rules"); };
+
+function buildGrid(who){
+  const grid = document.querySelector(`.grid[data-who="${who}"]`);
+  grid.innerHTML = "";
+  GIFTS.filter(g=>!(state.noSurprise && g.id==="surprise")).forEach(g=>{
+    const b = document.createElement("button");
+    b.className = "gift"; b.type="button"; 
+    b.innerHTML = `<span class="emo">${g.emo}</span><span class="t">${g.t}</span><span class="d">${g.d}</span>`;
+    b.onclick = () => {
+      grid.querySelectorAll(".gift").forEach(x=>x.classList.remove("sel"));
+      b.classList.add("sel"); state[who]=g.id; $("#"+who+"Done").disabled=false;
+    };
+    grid.appendChild(b);
+  });
+}
+function resetPicks(){
+  state.bride=state.groom=state.final=null;
+  buildGrid("bride"); buildGrid("groom");
+  $("#brideDone").disabled=true; $("#groomDone").disabled=true;
+}
+resetPicks();
+$("#brideDone").onclick = () => show("switch");
+$("#groomDone").onclick = () => { show("drum"); setTimeout(reveal, 2200); };
+
+const G = id => GIFTS.find(g=>g.id===id);
+function reveal(){
+  const b = G(state.bride), g = G(state.groom);
+  $("#pair").innerHTML =
+    `<div class="pick"><small>The bride picked</small><div class="emo">${b.emo}</div><div class="t">${b.t}</div></div>
+     <div class="pick"><small>The groom picked</small><div class="emo">${g.emo}</div><div class="t">${g.t}</div></div>`;
+  $("#coinWrap").hidden = true; $("#toVoucher").hidden = true;
+  if(state.bride===state.groom){
+    $("#revealTitle").textContent = "It's a match! Two hearts, one brain 💞";
+    $("#revealText").textContent = "Your first married decision with zero arguments. Write it down for history.";
+    $("#tieBtns").hidden = true; state.final = state.bride; $("#toVoucher").hidden = false; burst();
+  } else {
+    $("#revealTitle").textContent = "Uh-oh… you don't match 😬";
+    $("#revealText").textContent = "Don't worry, we have two ways to settle this:";
+    $("#tieBtns").hidden = false;
+  }
+  show("reveal");
+}
+$("#brideWins").onclick = () => {
+  state.final = state.bride; $("#tieBtns").hidden = true;
+  $("#revealText").textContent = "Very wise. The groom is already learning the secrets of married life 👑";
+  $("#toVoucher").hidden = false; burst();
+};
+$("#coinBtn").onclick = () => {
+  $("#tieBtns").hidden = true; $("#coinWrap").hidden = false;
+  const coin = $("#coin"); coin.classList.add("spin"); coin.textContent="?";
+  $("#coinText").textContent = "The coin is spinning…";
+  setTimeout(()=>{
+    coin.classList.remove("spin");
+    const brideWon = Math.random()<.5;
+    state.final = brideWon ? state.bride : state.groom;
+    coin.textContent = brideWon ? "👰" : "🤵";
+    $("#coinText").textContent = brideWon ? "The bride wins! (The coin knows what's good for it)" : "The groom wins! Enjoy it, this won't happen often 😂";
+    $("#toVoucher").hidden = false; burst();
+  }, 1800);
+};
+$("#retry").onclick = () => { state.noSurprise=true; resetPicks(); show("bride"); };
+$("#toVoucher").onclick = () => {
+  if(state.final==="surprise"){ show("prank"); burst("💩"); setTimeout(()=>burst("💩"),500); return; }
+  const f = G(state.final);
+  $("#vEmo").textContent = f.emo; $("#vName").textContent = f.t; $("#vDesc").textContent = f.d;
+  if(f.note){ $("#vNote").hidden=false; $("#vNote").textContent=f.note; } else $("#vNote").hidden=true;
+  const msg = `We picked our gift 🎁: ${f.emo} ${f.t}\nAnd don't be late next time 😂`;
+  $("#waBtn").href = "https://wa.me/?text=" + encodeURIComponent(msg);
+  show("voucher"); burst(); setTimeout(()=>burst(),600);
+};
+$("#again").onclick = () => { state.noSurprise=false; resetPicks(); $("#env").classList.remove("open"); show("env"); };
+
+const cv = $("#conf"), cx = cv.getContext("2d"); let parts=[], raf=null;
+const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+function size(){ cv.width=innerWidth; cv.height=innerHeight; } size(); addEventListener("resize",size);
+function burst(emoji){
+  if(reduce) return;
+  const cols = ["#B08D57","#D9C3A0","#E8DCCB","#8C8178","#C9A27E"];
+  for(let i=0;i<(emoji?40:70);i++) parts.push({
+    x:innerWidth/2, y:innerHeight*.35, vx:(Math.random()-.5)*14, vy:Math.random()*-12-4,
+    r:Math.random()*6+4, c:cols[i%cols.length], a:Math.random()*6, va:(Math.random()-.5)*.3,
+    sym: emoji || null, life:0
+  });
+  if(!raf) tick();
+}
+function tick(){
+  cx.clearRect(0,0,cv.width,cv.height);
+  parts.forEach(p=>{
+    p.vy+=.35; p.vx*=.99; p.x+=p.vx; p.y+=p.vy; p.a+=p.va; p.life++;
+    cx.save(); cx.translate(p.x,p.y); cx.rotate(p.a);
+    if(p.sym){ cx.font=`${p.r*3}px sans-serif`; cx.fillText(p.sym,0,0); }
+    else { cx.fillStyle=p.c; cx.fillRect(-p.r/2,-p.r/4,p.r,p.r/2); }
+    cx.restore();
+  });
+  parts = parts.filter(p=>p.y<cv.height+40 && p.life<260);
+  raf = parts.length ? requestAnimationFrame(tick) : (cx.clearRect(0,0,cv.width,cv.height), null);
+}
+</script>
+</body>
+</html>
